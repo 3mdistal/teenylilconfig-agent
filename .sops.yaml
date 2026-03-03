@@ -1,0 +1,6 @@
+# SOPS configuration for teenylilconfig-agent
+# The age recipient below is the PUBLIC key — safe to commit.
+# The matching PRIVATE key is held by Alice and pasted at session start.
+creation_rules:
+  - path_regex: secrets/.*\.sops\.ya?ml
+    age: age1pv9f0n73nl8v9czdyzan5y02dteatc680wdng8waunsxw3g7299sqw2pez

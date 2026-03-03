@@ -1,0 +1,154 @@
+# Repository manifest for teenylilconfig-agent
+# Used by bootstrap.sh and referenced in AGENTS.md
+# Last updated: 2026-03-03
+
+repositories:
+  # ── Active Development ──────────────────────────────
+  - name: julielmoore.com
+    url: https://github.com/3mdistal/julielmoore.com
+    description: "Mom's poetry website. Julie L. Moore — poet & writer."
+    stack: [Next.js, Payload CMS, Vercel Postgres, Vercel Blob]
+    hosting: Vercel
+    branch: main
+    private: true
+    status: active
+    vercel_project: true
+    notes: >
+      Recently rebuilt from WordPress. Has seed script for content.
+      Payload admin at /admin. Uses Vercel Postgres + Blob storage.
+
+  - name: alicealexandra.com
+    url: https://github.com/3mdistal/alicealexandra.com
+    description: "Personal portfolio, blog, and catch-all project."
+    stack: [Svelte]
+    hosting: Vercel
+    branch: main
+    private: false
+    status: active
+    vercel_project: true
+    notes: >
+      Has open design system issues (#76, #91). R2 for image serving.
+      Content lives in teenylilcontent repo.
+
+  - name: bwrb
+    url: https://github.com/3mdistal/bwrb
+    description: "Schema-driven note management for markdown vaults."
+    stack: [TypeScript]
+    branch: main
+    private: false
+    status: active
+    vercel_project: false
+    notes: >
+      ~52 open issues. CI with required status checks.
+      Test: npm test. Docs site at bwrb.dev.
+
+  - name: teenylilconfig
+    url: https://github.com/3mdistal/teenylilconfig
+    description: "Personal dotfiles and machine configuration."
+    stack: [Bash, Nix, stow]
+    branch: main
+    private: true
+    status: active
+    vercel_project: false
+    notes: >
+      Uses SOPS+age for secrets. macOS (stow) + NixOS (flake).
+      37 open issues. Agent should mostly read, not modify.
+
+  # ── Work ────────────────────────────────────────────
+  - name: builder
+    url: https://github.com/3mdistal/builder
+    description: "Builder.io internal work."
+    stack: [Python]
+    branch: main
+    private: true
+    status: active
+    vercel_project: false
+
+  # ── Tools ───────────────────────────────────────────
+  - name: ralph
+    url: https://github.com/3mdistal/ralph
+    description: "Autonomous coding task orchestrator for OpenCode."
+    stack: [TypeScript]
+    branch: main
+    private: false
+    status: active
+    notes: "46 open issues."
+
+  - name: teenylilqueue
+    url: https://github.com/3mdistal/teenylilqueue
+    description: "Self-hosted GitHub merge queue. Runs on Vercel."
+    stack: [TypeScript, Vercel]
+    branch: main
+    private: false
+    status: active
+    vercel_project: true
+
+  - name: css-mcp-server
+    url: https://github.com/3mdistal/css-mcp-server
+    description: "Demo MCP server for CSS knowledge."
+    stack: [TypeScript]
+    branch: main
+    private: false
+    status: stable
+    notes: "32 stars. Companion to a Builder.io blog post."
+
+  - name: opencode-usage
+    url: https://github.com/3mdistal/opencode-usage
+    description: "CLI for querying OpenAI usage across OAuth profiles."
+    stack: [TypeScript]
+    branch: main
+    private: true
+    status: stable
+
+  # ── Personal/Creative ───────────────────────────────
+  - name: teenylilthoughts
+    url: https://github.com/3mdistal/teenylilthoughts
+    description: "Journal, tasks, and personal notes vault."
+    branch: main
+    private: true
+    status: active
+    agent_access: read-only
+    notes: >
+      READ-ONLY for agent context. Do not modify entries.
+      Markdown vault managed by bwrb.
+
+  - name: teenylilcontent
+    url: https://github.com/3mdistal/teenylilcontent
+    description: "Content for alicealexandra.com and other sites."
+    branch: main
+    private: true
+    status: active
+
+  - name: feeling-machines
+    url: https://github.com/3mdistal/feeling-machines
+    private: true
+    status: dormant
+
+  - name: these-makeshift-idiotika
+    url: https://github.com/3mdistal/these-makeshift-idiotika
+    private: true
+    status: dormant
+
+  - name: betson
+    url: https://github.com/3mdistal/betson
+    private: true
+    status: dormant
+    stack: [Svelte]
+
+  - name: birdsofmalaiseville.com
+    url: https://github.com/3mdistal/birdsofmalaiseville.com
+    description: "Essays and bird art, presented creatively on the web."
+    stack: [TypeScript]
+    private: false
+    status: dormant
+
+  # ── Archived/Inactive ──────────────────────────────
+  - name: apps-by-alice
+    url: https://github.com/3mdistal/apps-by-alice
+    description: "Old monorepo."
+    status: archived
+
+  - name: ghostty-config
+    url: https://github.com/3mdistal/ghostty-config
+    description: "JSON-based Ghostty config. Superseded by teenylilconfig."
+    status: archived

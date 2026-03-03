@@ -1,0 +1,21 @@
+# Decrypted secrets (should never exist in the repo, but just in case)
+/tmp/
+*.decrypted.*
+agent-secrets.sh
+
+# age private keys
+*.age-key
+agent-age-key.txt
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Node (shouldn't be needed, but safe)
+node_modules/

@@ -45,3 +45,10 @@ rm /tmp/plain.yaml
 - The age private key is never committed, stored on disk, or persisted across sessions
 - Decrypted values exist only in `/tmp/` which is ephemeral to the sandbox session
 - The encrypted file is safe to commit (AES-256-GCM encryption)
+
+## Current Keys
+
+- `GITHUB_PAT` — GitHub authentication
+- `VERCEL_TOKEN` — Vercel CLI access
+- `OPENAI_API_KEY` — OpenAI API access
+- `TYPEFULLY_API_KEY` — Typefully API for social media management

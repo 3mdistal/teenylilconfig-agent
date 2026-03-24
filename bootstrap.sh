@@ -261,7 +261,7 @@ show_status() {
   fi
 
   # Env vars
-  for var in GITHUB_PAT VERCEL_TOKEN OPENAI_API_KEY; do
+  for var in GITHUB_PAT VERCEL_TOKEN OPENAI_API_KEY TYPEFULLY_API_KEY; do
     if [[ -n "${!var:-}" ]]; then
       echo -e "  $var: ${GREEN}set${NC} (${!var:0:8}...)"
     else

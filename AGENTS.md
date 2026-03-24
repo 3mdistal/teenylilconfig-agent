@@ -43,6 +43,7 @@ Credentials are stored in `secrets/agent-env.sops.yaml` (encrypted with age). Af
 - `GITHUB_PAT` — Clone private repos, push code, authenticate gh CLI
 - `VERCEL_TOKEN` — Vercel CLI for deploys, env pulls, project management
 - `OPENAI_API_KEY` — Direct OpenAI API calls (if needed outside built-in models)
+- `TYPEFULLY_API_KEY` — Typefully API for drafting, scheduling, and publishing social posts
 
 ### Vercel Cascading Access
 
@@ -53,6 +54,36 @@ cd <project-dir>
 npx vercel link --token=$VERCEL_TOKEN --yes
 npx vercel env pull .env.local --token=$VERCEL_TOKEN
 ```
+
+### Typefully
+
+`TYPEFULLY_API_KEY` provides access to the Typefully API (v2) for managing social media posts across X, LinkedIn, Threads, Bluesky, and Mastodon.
+
+**Installing the official Typefully skill:**
+
+```bash
+# Option A: CLI install
+npx skills add typefully/agent-skills
+
+# Option B: Manual — copy the skill into Claude's skill directory
+git clone https://github.com/typefully/agent-skills.git /tmp/typefully-skills
+cp -r /tmp/typefully-skills/skills/typefully .claude/skills/typefully
+```
+
+**Direct API usage** (no skill install needed):
+
+```bash
+# Auth check
+curl -s -H "Authorization: Bearer $TYPEFULLY_API_KEY" https://api.typefully.com/v2/social-sets
+
+# Create a draft (replace SOCIAL_SET_ID)
+curl -s -X POST -H "Authorization: Bearer $TYPEFULLY_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"platforms":{"x":{"enabled":true,"posts":[{"text":"Hello world"}]}}}' \
+  https://api.typefully.com/v2/social-sets/SOCIAL_SET_ID/drafts
+```
+
+Always confirm with Alice before using `publish_at: "now"`.
 
 ## What You Can Do Without Bootstrap
 
